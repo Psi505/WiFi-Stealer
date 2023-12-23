@@ -8,7 +8,7 @@ This is a simple batch program to grab Wi-Fi credentials from a local Windows ma
 - Undetectable by the default Windows Security AV (didn't test other AVs, but it should be also undetectable by them).
 - Exfiltrated cedentials can be sent to a [webhook](https://webhook.site/) or saved locally to a txt file.
 - The program has the ability to self-delete.
-- To avoid problems caused by specials characters, the credentials are also stored in a hexadecimal value (in the form `name:password`).
+- To avoid problems caused by special characters, the credentials are also stored in a hexadecimal value (in the form `name:password`).
 
 **Note**: When using [Webhook.site](https://webhook.site/), please take the expiration of the URLs into consideration.
 
@@ -17,7 +17,7 @@ This is a simple batch program to grab Wi-Fi credentials from a local Windows ma
 There is a wide variety of ways to run the program. You can choose to use it in whatever way suits your needs. But usually, you either run this program on your machine or on a target machine. Here are some examples on how you can use the program:
 
 ### Running the program on a local machine (yours)
-To run the script and save the credentials in the default `txt` file (this code line sets the default text file: `set "credsfile=creds.txt"`.), simply type:
+To run the script and save the credentials in the default `txt` file (this code line sets the default text file: `set "credsfile=creds.txt"`), simply type:
 
 ```batch
 > WiFi-Stealer.bat
