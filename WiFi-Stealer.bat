@@ -44,8 +44,7 @@ netsh wlan export profile key=clear >nul
 
 	:: Get name
 	set "name="
-	for /f "tokens=*" %%j in ('findstr /c:"<name>" "%file%"') do (set name=%%j && goto :exitforname)
-	:exitforname
+	for /f "skip=1 tokens=*" %%j in ('findstr /c:"<name>" "%file%"') do (set name=%%j)
 	set "name=%name:<name>=%"
 	set "name=%name:</name>=%"
 	:: Avoid program crash with names that contain "&" character

